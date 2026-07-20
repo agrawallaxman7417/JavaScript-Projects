@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Snake Game</title>
+</head>
+<body>
+    <main>
+        <section class="game-section">
+
+            <header class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">High Score</span>
+                    <span id="high-score" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Score</span>
+                    <span id="score" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Level</span>
+                    <span id="level" class="hud-value">1</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Time</span>
+                    <span id="time" class="hud-value">00:00</span>
+                </div>
+            </header>
+
+            <div class="board-wrapper">
+                <div class="board" id="board"></div>
+                <div class="pause-overlay" id="pause-overlay">
+                    <h2>PAUSED</h2>
+                    <p>Press <kbd>Space</kbd> or <kbd>Esc</kbd> to resume</p>
+                </div>
+            </div>
+
+            <div class="touch-controls" id="touch-controls">
+                <button class="touch-btn touch-up" data-dir="top" aria-label="Move up">&#9650;</button>
+                <div class="touch-row">
+                    <button class="touch-btn touch-left" data-dir="left" aria-label="Move left">&#9664;</button>
+                    <button class="touch-btn touch-down" data-dir="down" aria-label="Move down">&#9660;</button>
+                    <button class="touch-btn touch-right" data-dir="right" aria-label="Move right">&#9654;</button>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="modal" id="modal">
+
+            <div class="panel start-screen" id="start-screen">
+                <h1 class="logo">SNAKE</h1>
+                <p class="tagline">Choose a difficulty and slither in.</p>
+
+                <div class="difficulty-select" id="difficulty-select">
+                    <button class="btn difficulty-btn" data-difficulty="easy">Easy</button>
+                    <button class="btn difficulty-btn is-selected" data-difficulty="medium">Medium</button>
+                    <button class="btn difficulty-btn" data-difficulty="hard">Hard</button>
+                </div>
+
+                <label class="grid-toggle">
+                    <input type="checkbox" id="grid-toggle-input">
+                    Show grid lines
+                </label>
+
+                <button class="btn btn-primary btn-start" id="start-btn">Start Game</button>
+
+                <div class="stats-panel" id="stats-panel">
+                    <h3>Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-label">Games Played</span>
+                            <span id="stat-games" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">High Score</span>
+                            <span id="stat-highscore" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Best Time</span>
+                            <span id="stat-besttime" class="stat-value">00:00</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Longest Snake</span>
+                            <span id="stat-longest" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Total Food Eaten</span>
+                            <span id="stat-totalfood" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel countdown-screen" id="countdown-screen">
+                <span class="countdown-number" id="countdown-number">3</span>
+            </div>
+
+            <div class="panel game-over-screen" id="game-over-screen">
+                <h2>Game Over</h2>
+                <div class="medal" id="medal"></div>
+                <div class="game-over-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score</span>
+                        <span id="final-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">High Score</span>
+                        <span id="go-high-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time Played</span>
+                        <span id="final-time" class="stat-value">00:00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Longest Length</span>
+                        <span id="final-length" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-restart" id="restart-btn">Play Again</button>
+                <p class="hint">Press <kbd>R</kbd> to restart quickly</p>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
